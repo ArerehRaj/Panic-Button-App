@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PanicButton">
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".VolunteerFormActivity"></activity>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".AddDetailsActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

@@ -24,4 +24,10 @@ public class HomeActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
+    public void VolonteerForm(View view)
+    {
+        Intent intent = new Intent(HomeActivity.this, VolunteerFormActivity.class);
+        startActivity(intent);
+    }
 }
