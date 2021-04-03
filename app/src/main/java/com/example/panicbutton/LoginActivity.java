@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -64,9 +65,6 @@ public class LoginActivity extends AppCompatActivity {
                             .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-//                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-//                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                                    startActivity(intent);
                                     ParseQuery<ParseUser> query = ParseUser.getQuery();
                                     query.whereEqualTo("username",username);
                                     query.findInBackground(new FindCallback<ParseUser>() {
@@ -82,7 +80,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                                 if(isData)
                                                 {
-                                                    Toast.makeText(LoginActivity.this,"Data is given",Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    startActivity(intent);
                                                 }
                                                 else
                                                 {

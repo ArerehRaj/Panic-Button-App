@@ -23,9 +23,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-Intent intent=new Intent(MainActivity.this,VolunteerDetails.class);
-startActivity(intent);
+
         getSupportActionBar().hide();
+
+        if(ParseUser.getCurrentUser() != null)
+        {
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
 
         editTextUserName = findViewById(R.id.editTextUsername);
         editTextUserEmail = findViewById(R.id.editTextUserEmail);
@@ -94,7 +100,6 @@ startActivity(intent);
                                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(intent);
-//                                    Toast.makeText(MainActivity.this,"Closed",Toast.LENGTH_SHORT).show();
                                 }
                             })
                             .show();
