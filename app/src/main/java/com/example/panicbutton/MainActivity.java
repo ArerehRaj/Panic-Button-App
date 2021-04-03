@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+Intent intent=new Intent(MainActivity.this,VolunteerDetails.class);
+startActivity(intent);
         getSupportActionBar().hide();
 
         editTextUserName = findViewById(R.id.editTextUsername);
