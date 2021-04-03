@@ -3,4 +3,13 @@
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <string name="back4app_app_id">PDBc9pbCQLWaKiBYMsjZUo5DBI8HaYCKrmWGvRGp</string>
     <string name="back4app_client_key">YdUdmGvDoaFhXrwv30Smf0tWur3wnNobE3npFWiA</string>
+
+    <string-array name="genders">
+
+        <item>Male</item>
+        <item>Female</item>
+        <item>Others</item>
+
+    </string-array>
+
 </resources>

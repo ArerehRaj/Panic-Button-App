@@ -10,9 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -62,7 +67,32 @@ public class LoginActivity extends AppCompatActivity {
 //                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
 //                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 //                                    startActivity(intent);
-                                    Toast.makeText(LoginActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                                    ParseQuery<ParseUser> query = ParseUser.getQuery();
+                                    query.whereEqualTo("username",username);
+                                    query.findInBackground(new FindCallback<ParseUser>() {
+                                        @Override
+                                        public void done(List<ParseUser> objects, ParseException e) {
+                                            if(e == null)
+                                            {
+                                                boolean isData = false;
+                                                for(ParseObject object : objects)
+                                                {
+                                                    isData = object.getBoolean("IsDataGiven");
+                                                }
+
+                                                if(isData)
+                                                {
+                                                    Toast.makeText(LoginActivity.this,"Data is given",Toast.LENGTH_SHORT).show();
+                                                }
+                                                else
+                                                {
+                                                    Intent intent = new Intent(LoginActivity.this, AddDetailsActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    startActivity(intent);
+                                                }
+                                            }
+                                        }
+                                    });
                                 }
                             })
                             .show();
