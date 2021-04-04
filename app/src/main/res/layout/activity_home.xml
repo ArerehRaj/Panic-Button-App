@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".HomeActivity">
 
     <LinearLayout
@@ -76,6 +77,8 @@
                 android:layout_height="140dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:clickable="true"
+                android:onClick="PromptUser"
                 android:layout_margin="18dp"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="5dp">
