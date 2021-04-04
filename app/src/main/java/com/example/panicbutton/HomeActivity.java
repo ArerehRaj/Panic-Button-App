@@ -82,8 +82,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void goToContacts(View view)
     {
-//        Intent intent = new Intent(HomeActivity.this, .class);
-//        startActivity(intent);
+        Intent intent = new Intent(HomeActivity.this, ContactDisplayActivity.class);
+        startActivity(intent);
     }
 
     public void goTOProfile(View view)
