@@ -3,12 +3,14 @@ package com.example.panicbutton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -42,13 +44,6 @@ public class ContactDisplayActivity extends AppCompatActivity {
         myRecycleView = findViewById(R.id.recycler_view);
 
         List<Map<String, String>> contactData = new ArrayList<>();
-//        for(int i=0; i<5; i++)
-//        {
-//            Map<String, String> Info = new HashMap<>();
-//            Info.put("name", "Contact " + i);
-//            Info.put("number", "1234-" + i);
-//            contactData.add(Info);
-//        }
 
         ParseQuery<ParseObject> contacts = new ParseQuery<ParseObject>("Contacts");
         contacts.whereEqualTo("User", ParseUser.getCurrentUser().getUsername());
@@ -63,6 +58,8 @@ public class ContactDisplayActivity extends AppCompatActivity {
                         Map<String, String> Info = new HashMap<>();
                         Info.put("name", object.get("Name").toString());
                         Info.put("number", object.get("Number").toString());
+                        Name.add(object.get("Name").toString());
+                        Number.add(object.get("Number").toString());
                         contactData.add(Info);
                     }
 
@@ -86,6 +83,15 @@ public class ContactDisplayActivity extends AppCompatActivity {
                     myRecycleView.setAdapter(simpleAdapter);
 
                 }
+            }
+        });
+
+        myRecycleView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ContactDisplayActivity.this, HelpMessageActivity.class);
+                intent.putExtra("ContactName", Name.get(position));
+                startActivity(intent);
             }
         });
     }

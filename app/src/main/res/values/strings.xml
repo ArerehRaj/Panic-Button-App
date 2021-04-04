@@ -13,5 +13,6 @@
     </string-array>
     <string name="title_activity_lists_maps">Map</string>
     <string name="title_activity_my_lists_maps">Map</string>
+    <string name="title_activity_help_maps">Map</string>
 
 </resources>

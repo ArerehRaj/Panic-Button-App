@@ -4,8 +4,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ViewTreeObserver;
-import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -20,7 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-public class MyListsMapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class HelpMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     Intent intent;
@@ -28,11 +26,11 @@ public class MyListsMapsActivity extends FragmentActivity implements OnMapReadyC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_lists_maps);
+        setContentView(R.layout.activity_help_maps);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
         intent = getIntent();
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -51,9 +49,10 @@ public class MyListsMapsActivity extends FragmentActivity implements OnMapReadyC
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        // Add a marker in Sydney and move the camera
         LatLng usersLocation = new LatLng(intent.getDoubleExtra("usersLatitude", 0), intent.getDoubleExtra("usersLongitude", 0));
 
-        LatLng centersLocation = new LatLng(intent.getDoubleExtra("centersLatitude", 0), intent.getDoubleExtra("centersLongitude", 0));
+        LatLng centersLocation = new LatLng(intent.getDoubleExtra("anotherLat", 0), intent.getDoubleExtra("anotherLong", 0));
 
         ArrayList<Marker> markers = new ArrayList<>();
 
@@ -71,7 +70,7 @@ public class MyListsMapsActivity extends FragmentActivity implements OnMapReadyC
         CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
 
         markers.get(0).setTitle("Your Location");
-        markers.get(1).setTitle("Volunteers/Police Location");
+        markers.get(1).setTitle("Centers Location");
 
         mMap.animateCamera(cu);
     }
