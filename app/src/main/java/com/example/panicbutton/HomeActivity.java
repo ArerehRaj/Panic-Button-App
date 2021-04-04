@@ -79,4 +79,17 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(HomeActivity.this, PanicButtonActivity.class);
         startActivity(intent);
     }
+
+    public void goToContacts(View view)
+    {
+//        Intent intent = new Intent(HomeActivity.this, .class);
+//        startActivity(intent);
+    }
+
+    public void goTOProfile(View view)
+    {
+        Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
 }

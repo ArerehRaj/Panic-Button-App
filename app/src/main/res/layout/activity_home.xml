@@ -43,6 +43,8 @@
                 android:layout_height="140dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:clickable="true"
+                android:onClick="goToContacts"
                 android:layout_margin="18dp"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="5dp">
@@ -113,6 +115,8 @@
                 android:layout_height="140dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:clickable="true"
+                android:onClick="goTOProfile"
                 android:layout_margin="18dp"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="5dp">
