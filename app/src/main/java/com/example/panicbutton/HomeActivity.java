@@ -73,4 +73,10 @@ public class HomeActivity extends AppCompatActivity {
         btnNegative.setLayoutParams(layoutParams);
 
     }
+
+    public void goSOS(View view)
+    {
+        Intent intent = new Intent(HomeActivity.this, PanicButtonActivity.class);
+        startActivity(intent);
+    }
 }
