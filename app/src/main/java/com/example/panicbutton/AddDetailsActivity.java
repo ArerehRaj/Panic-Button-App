@@ -2,6 +2,7 @@ package com.example.panicbutton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -107,7 +108,9 @@ public class AddDetailsActivity extends AppCompatActivity implements AdapterView
                         object.put("Address",address);
                         object.put("IsDataGiven",true);
                         object.saveInBackground();
-                        Toast.makeText(AddDetailsActivity.this,"Saved",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(AddDetailsActivity.this,"Saved",Toast.LENGTH_SHORT).show();
+                        Intent newIntent = new Intent(AddDetailsActivity.this, HomeActivity.class);
+                        startActivity(newIntent);
                     }
                 }
             }
